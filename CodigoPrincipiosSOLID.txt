@@ -1,0 +1,108 @@
+//Principio de respondabilidad única//
+
+class Lavadora:
+    def _init_(self,lavar):
+        self.lavar = lavar
+        
+class LavadoraSecadora:
+    def _init_(self,secar):
+        self.secar = secar
+
+//La clase lavadora se dividió entre las clases Lavadora y LavadoraSecadora para que cada una tenga su única responsabilidad.
+
+
+
+//Principio Abierto/Cerrado//
+
+#Planes Hogar Movistar
+class PlanEstrato4:
+    def _init_(self,cliente,precio):
+        self.cliente = cliente
+        self.precio = precio
+    def PlanEstrato4(self):
+        return self.precio * 1.5
+    
+class PlanEstrato5:
+    def PlanEstrato5(self):
+        return self.precio * 1.8
+    
+class PlanEstrato6:
+    def PlanEstrato6(self):
+        return self.precio * 2
+
+
+//En el anterior ejemplo se observa como los planes hogar movistar dependiente el estrato, el precio sube. Para esto se crearon clases independientes que permitiran en un futuro si es necesario agregar otro tipo de valor o estrato sin modificar lo que ya existe.//
+
+
+//Principio de sustitución Liskov//
+
+class Animal:
+    def _init_(self,correr,cazar,caminar):
+        self.correr = correr
+        self.cazar = cazar
+        self.caminar = caminar
+        
+class Tigre:
+    def Tigre(self):
+        return self.correr
+        return self.cazar
+        return self.caminar
+    
+class Tortuga:
+    def Tortuga(self):
+        return self.caminar
+
+
+//La clase animal, tiene las subclases Tigre y Toruga, las cuales realizan diferentes funciones. Cuando se use la clase Tigre el programa retornará los atributos que tiene el tigre, como lo son correr, cazar y caminar. De igual manera cuando se utilice la clase tortuga, el programa retornará solo el atributo caminar. se separaron los atributos ya que la toruga no puede cazar, ni correr.//
+
+
+//Principio de segregación de interfaces//
+
+
+class Formas:
+    def _init_(self,dibujar):
+        self.dibujar = dibujar
+        
+class Circulo:
+    def Dibujar(self):
+        pass 
+        
+class Triangulo:
+    def Dibujar(self):
+        pass
+
+class Cuadrado:
+    def Dibujar(self):
+        pass
+    
+class Rectangulo:
+    def Dibujar(self):
+        pass
+
+//Varias interfaces funcionan mejor que una sola.//
+
+
+//Principio de inversión de dependencia//
+
+class Motor:
+    def _init_(self):
+        pass
+    
+    def acelerador(self):
+        pass
+    
+    def getVelocidad(self):
+        VelociadActual = 0
+        return VelocidadActual
+    
+class Automovil:
+    def _init_(self,motor):
+        self._motor = motor
+        
+        def getMotorVelocidad(self):
+            return self._motor.getVelovidad
+
+
+//Lo que se realizó es que la clase Motor no dependiente de la clase Vehiculo.//
+
+//Presentado por: Daniel Felipe Arango Henao 100088752 y Hernan Daniel Hernández Mejía 100100930//
